@@ -1,0 +1,48 @@
+# git clone https://github.com/tigerking/WebDriverAgent.git
+
+# xcode to open <project folder>/WebDriverAgent.xcodeproj
+# change WebDriverAgentLib and WebDriverAgentRunner's  Bundle identifier to yours ,eg com.xyzabc.wda.lib com.xyzabc.wda.runner 
+# menu Project-Scheme , select WebDriverAgentRunner,
+# menu Project-Destination , select your connect iphone device
+# menu Project-Build
+# menu project-Test (retry some times in case in case fail and app not installed to your phone)
+
+# on your iphone, settings/general / description and device manage , trust your signature
+
+# install tidevice
+# ref https://github.com/alibaba/taobao-iphone-device
+
+pip install  "tidevice[openssl]"
+
+>some useful commands
+
+tidevice list
+tidevice applist
+
+tidevice screenshot screenshot.jpg
+
+# Launch the wda test
+tidevice wdaproxy -B com.tigerking.wda.runner.xctrunner --port 8200
+
+#Ok, let us use wda to operate you iphone
+
+# python3
+
+import wda
+c = wda.Client('http://localhost:8200')
+
+s = c.session('jp.pokemon.pokemonquest')
+
+ws = s.window_size()
+scale = s.scale  # 3.0
+print('app screen size = {}'.format(ws))
+
+img = c.screenshot(format='raw')
+
+s.tap(100, 200)
+
+s.click(200, 50)
+
+print('go home')
+c.home()
+
