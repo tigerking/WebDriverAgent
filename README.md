@@ -1,7 +1,7 @@
 # WebDriverAgent
 
 ### [UPDATE]
-### read "QUICK_START.TXT" for quick setup and play.
+### read "QUICK_STEPS.TXT" for quick setup and play.
 
 
 [![GitHub license](https://img.shields.io/badge/license-BSD-lightgrey.svg)](LICENSE)
