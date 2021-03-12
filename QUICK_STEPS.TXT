@@ -5,7 +5,7 @@
 # menu Project-Scheme , select WebDriverAgentRunner,
 # menu Project-Destination , select your connect iphone device
 # menu Project-Build
-# menu project-Test (retry some times in case in case fail and app not installed to your phone)
+# menu project-Test (retry some times in case failure and app not installed to your phone)
 
 # on your iphone, settings/general / description and device manage , trust your signature
 
@@ -13,6 +13,12 @@
 # ref https://github.com/alibaba/taobao-iphone-device
 
 pip install  "tidevice[openssl]"
+
+
+# launch wda thru tidevice
+tidevice wdaproxy -B com.tigerking.wda.runner.xctrunner --port 8200
+
+
 
 >some useful commands
 
